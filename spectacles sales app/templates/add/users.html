@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+<!-- title block -->
+{% block title %}Add Users{% endblock %}
+
+<!-- body block -->
+{% block body %}
+<div class="users-wrapper">
+  <a class="add-user-btn user-btn" href="{{url_for('add.new_user')}}"
+    ><i class="fa-solid fa-user user-icon"></i>New User</a
+  >
+  <a class="add-user-btn user-btn" href="#"
+    ><i class="fa-solid fa-user user-icon"></i>View Users</a
+  >
+  <a class="update-btn user-btn" href="#">Update Password</a>
+</div>
+<!-- end of block -->
+{% endblock %}

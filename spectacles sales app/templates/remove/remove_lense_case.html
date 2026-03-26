@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+<!-- title block -->
+{% block title %}Remove Lense Case{% endblock %}
+
+<!-- body block -->
+{% block body %}
+<!-- header -->
+<h2 class="remove-lensecase-header">Remove Spectacle</h2>
+
+<!-- forms -->
+<form
+  action="{{url_for('remove_item.remove_case')}}"
+  method="post"
+  class="remove-lensecase-form"
+>
+  <!-- spectacles id -->
+  <input type="number" name="id" placeholder="Enter ID" required />
+  <!-- submit button -->
+  <button type="submit" class="remove-lensecase-submit">Remove</button>
+</form>
+
+<!-- flash message -->
+{% with message = get_flashed_messages(with_categories = True) %} {% if
+message%} {% for c, m in message %}
+<p class="{{c}} add-info">{{m}}</p>
+{% endfor %} {% endif %} {% endwith %}
+
+<!-- block end -->
+{% endblock %}

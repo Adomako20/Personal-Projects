@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+<!-- title block -->
+{% block title %}Spectacles{% endblock %}
+
+<!-- body block -->
+{% block body %}
+
+<div class="wrapper">
+  <!-- first box -->
+  <div class="wrap-1">
+    <!-- first inner box -->
+    <div class="stock">
+      <h3 class="wrap-header">Current Stock</h3>
+
+      {% if spec_all[0] >= 10 %}
+      <p class="wrap-info">{{spec_all[0]}}</p>
+      {% else %}
+      <p class="wrap-info" style="color: red">{{spec_all[0]}}</p>
+      {% endif %}
+    </div>
+
+    <!-- second inner box -->
+    <div class="sold">
+      <h3 class="wrap-header">Quantity Sold</h3>
+      <p class="wrap-info">0</p>
+    </div>
+
+    <!-- third inner box -->
+    <div class="sales">
+      <h3 class="wrap-header">Sales Person</h3>
+      <p class="wrap-info">{{session["user"].title()}}</p>
+    </div>
+  </div>
+  <!-- end of first box -->
+
+  <!-- second box -->
+  <div class="wrap-2">
+    <div class="wrap-header big">
+      <h2 class="w-head">Spectacles</h2>
+
+      <div class="wrapper-search">
+        <form action="{{url_for('spectacle.spec')}}" method="post">
+          <input
+            type="number"
+            name="search"
+            id="Search"
+            autofocus
+            placeholder="Search with ID"
+            required
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- now individual boxes for each spectacles available -->
+
+    <div class="spec-box">
+      {% if data %} {% if data|length > 1 %} {% for spec in data %}
+      <div class="spec">
+        <!-- header -->
+        <div class="spec-header">
+          <h3 class="spec-id">ID: {{spec[0]}}</h3>
+          <h3 class="spec-gender">Gender: {{spec[1]}}</h3>
+          <h3 class="spec-strength">Strength: {{spec[4]}}</h3>
+        </div>
+        <div class="inner-wraper">
+          <!-- image -->
+          <div class="spec-image">
+            <i class="fas fa-glasses spec-glass"></i>
+          </div>
+          <!-- spec footer -->
+        </div>
+        <div class="spec-footer">
+          <h3 class="spec-price">
+            Price:
+            <strong style="color: yellow">Ghc {{spec[2]}}</strong>
+          </h3>
+          <h3 class="spec-color">Color: {{spec[3].title()}}</h3>
+          <h3 class="spec-sell"><a href="#">Sell</a></h3>
+        </div>
+      </div>
+      {% endfor %} {% elif data|length == 1 %}
+      <div class="spec">
+        <!-- header -->
+        <div class="spec-header">
+          <h3 class="spec-id">ID: {{data[0][0]}}</h3>
+          <h3 class="spec-gender">Gender: {{data[0][1]}}</h3>
+          <h3 class="spec-strength">Strength: {{data[0][4]}}</h3>
+        </div>
+        <div class="inner-wraper">
+          <!-- image -->
+          <div class="spec-image">
+            <i class="fas fa-glasses spec-glass"></i>
+          </div>
+          <!-- spec footer -->
+        </div>
+        <div class="spec-footer">
+          <h3 class="spec-price">
+            Price:
+            <strong style="color: yellow">Ghc {{data[0][2]}}</strong>
+          </h3>
+          <h3 class="spec-color">Color: {{data[0][3].title()}}</h3>
+          <h3 class="spec-sell"><a href="#">Sell</a></h3>
+        </div>
+      </div>
+      {% endif %} {% else %}
+      <div
+        class="spec-box"
+        style="display: grid; grid-template-columns: 1fr; place-items: center"
+      >
+        <div
+          class="spec"
+          style="
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0;
+          "
+        >
+          <h1 class="not-items">No Spectacle added</h1>
+        </div>
+      </div>
+
+      {% endif %}
+    </div>
+  </div>
+  <!-- end of second box -->
+</div>
+{% endblock %}

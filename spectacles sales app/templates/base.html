@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/index.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/all.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/spec.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/add.css')}}"
+    />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="login-header">
+      <h1><a href="/">LenXale</a></h1>
+    </header>
+
+    <!-- user name display -->
+    {% if session["user"]%}
+    <p class="wel_user">
+      Welcome - {{session["user"].upper()}}
+      <a href="{{url_for('auth.logout')}}">Logout</a>
+    </p>
+    {% else %}
+    <p class="wel_user" style="color: red">No User Found</p>
+    {% endif %}
+
+    <!-- sub menu -->
+    {% block menubar %}
+
+    <div class="menu">
+      {% if session["user"] == "admin"%}
+      <div class="menu-container" style="background-color: var(--primary)">
+        <ul>
+          <li><a href="{{url_for('spectacle.spec')}}">Spectacles</a></li>
+          <li><a href="{{url_for('case.lense_case')}}">Lense Case</a></li>
+          <li><a href="#">Sales</a></li>
+          <li><a href="{{url_for('add.additem')}}">Add</a></li>
+          <li><a href="{{url_for('remove_item.remove')}}">Remove</a></li>
+        </ul>
+      </div>
+      {% else %}
+      <div class="menu-container">
+        <ul>
+          <li><a href="{{url_for('spectacle.spec')}}">Spectacles</a></li>
+          <li><a href="{{url_for('case.lense_case')}}">Lense Case</a></li>
+          <li><a href="#">Sales</a></li>
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+    {% endblock %}
+
+    <!-- block -->
+    {% block body %}{% endblock %}
+  </body>
+
+  <!-- connecting to javascript -->
+  <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</html>

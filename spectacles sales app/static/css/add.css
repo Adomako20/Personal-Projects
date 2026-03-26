@@ -1,0 +1,94 @@
+:root {
+  --primary: #0f766e;
+  --secondary: #14b8a6;
+  --secondary-dark: #0d9488;
+  --accent: #f1f5f9;
+  --text: #1e293b;
+  --white: #ffffff;
+  --radius: 10px;
+}
+
+/* styling the add sub pages */
+.add-spectacles-header,
+.remove-spectacles-header,
+.add-lensecase-header,
+.remove-lensecase-header,
+.new-header {
+  text-align: center;
+  margin: 30px 0;
+  text-transform: uppercase;
+}
+.add-spec-form,
+.remove-spec-form,
+.add-lensecase-form,
+.remove-lensecase-form,
+.new-user-form {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid var(--primary);
+  padding: 20px;
+  border-radius: 10px;
+}
+.add-spec-form input,
+.add-spec-form button,
+.add-spec-form select,
+.remove-spec-form input,
+.remove-spec-form button,
+.add-lensecase-form input,
+.add-lensecase-form button,
+.remove-lensecase-form input,
+.remove-lensecase-form button,
+.new-user-form input,
+.new-user-form button {
+  padding: 15px 5px;
+  border-radius: 10px;
+}
+.add-spec-form select {
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.add-spec-form select option {
+  background-color: var(--accent);
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1rem;
+}
+.add-spec-form input,
+.remove-spec-form input,
+.add-lensecase-form input,
+.remove-lensecase-form input,
+.new-user-form input {
+  outline: 3px solid var(--secondary-dark);
+}
+.add-spec-form button,
+.remove-spec-form button,
+.add-lensecase-form button,
+.remove-lensecase-form button,
+.new-user-form button {
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.remove-lensecase-form button,
+.remove-spec-form button {
+  background-color: red;
+}
+.add-info,
+.new-user-info {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+/* users */
+.new-user-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}

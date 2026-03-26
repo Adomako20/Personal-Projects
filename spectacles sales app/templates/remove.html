@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+<!-- title block -->
+{% block title %}Remove Page{% endblock %}
+
+<!-- body block -->
+{% block body %}
+
+<div class="remove-wrapper">
+  <a
+    class="remove-btn remove-spec"
+    href="{{url_for('remove_item.remove_spec')}}"
+    ><i class="fas fa-glasses remove-spec-icon"></i>Remove Spectacles</a
+  >
+  <a
+    class="remove-btn remove-spec"
+    href="{{url_for('remove_item.remove_case')}}"
+    ><i class="fa-solid fa-briefcase remove-spec-icon"></i>Remove Lense Case</a
+  >
+  <a class="remove-btn remove-spec" href="#"
+    ><i class="fa-solid fa-user remove-spec-icon"></i>Remove User</a
+  >
+</div>
+
+{% endblock %}

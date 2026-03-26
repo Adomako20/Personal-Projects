@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+<!-- title block -->
+{% block title %}New User{% endblock %}
+
+<!-- body block -->
+{% block body %}
+<div class="new-user-wrapper">
+  <h2 class="new-header">New User</h2>
+  <form
+    action="{{url_for('add.create_user')}}"
+    method="post"
+    class="new-user-form"
+  >
+    <input
+      type="text"
+      required
+      autofocus
+      name="user_name"
+      placeholder="Username"
+    />
+    <input
+      type="password"
+      name="first_password"
+      required
+      placeholder="Enter Password"
+    />
+    <input
+      type="password"
+      name="second_password"
+      required
+      placeholder="Confirm Password"
+    />
+    <button type="submit" class="new-user-submit">Create User</button>
+  </form>
+  {% with message = get_flashed_messages(with_categories = True) %} {% if
+  message%} {% for c, m in message %}
+  <p class="{{c}} new-user-info">{{m}}</p>
+  {% endfor %} {% endif %} {% endwith %}
+</div>
+<!-- end of block -->
+{% endblock %}

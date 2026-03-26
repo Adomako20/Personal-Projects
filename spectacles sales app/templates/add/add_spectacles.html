@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+<!-- title block -->
+{% block title %}Add Spectacles{% endblock %}
+
+<!-- body block -->
+{% block body %}
+<!-- header -->
+<h2 class="add-spectacles-header">Add Spectacle</h2>
+
+<!-- forms -->
+<form
+  action="{{url_for('add.added_spec')}}"
+  method="post"
+  class="add-spec-form"
+>
+  <!-- gender -->
+  <select name="gender" id="gender" required>
+    <option value="" disabled selected>Gender</option>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+  <!-- price -->
+  <input type="number" placeholder="Price" required step="any" name="price" />
+  <!-- colour -->
+  <input type="text" name="colour" placeholder="Colour" required />
+  <!-- strength -->
+  <input
+    type="number"
+    step="any"
+    name="strength"
+    placeholder="Strength"
+    required
+  />
+  <!-- submit button -->
+  <button type="submit" class="add-spec-submit">Add</button>
+</form>
+
+<!-- flash message -->
+{% with message = get_flashed_messages(with_categories = True) %} {% if
+message%} {% for c, m in message %}
+<p class="{{c}} add-info">{{m}}</p>
+{% endfor %} {% endif %} {% endwith %}
+
+<!-- end of block -->
+{% endblock %}

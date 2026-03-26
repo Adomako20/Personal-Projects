@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+<!-- title block -->
+{% block title %}Home Page{% endblock %}
+
+<!-- body block -->
+{% block body %}
+<h1 class="home-wel">Welcome {{session["user"].upper()}}</h1>
+<div class="home-box">
+  <p class="home-message">
+    Welcome to LenXale, your number one platform purposely designed for the
+    management and selling of spectacles and lense casings. Please click on any
+    of the menu in the menu bar above to start using the app. Thank you.
+  </p>
+</div>
+
+{% endblock %}

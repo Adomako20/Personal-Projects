@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --primary: #1e3a8a;
+  --secondary: #3b82f6;
+  --secondary-dark: #2563eb;
+  --accent: #f8fafc;
+  --text: #1f2937;
+  --white: #ffffff;
+  --radius: 10px;
+}
+
+/* =========================
+   RESET
+========================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--accent);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================
+   HEADER
+========================= */
+.login-header {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-header a {
+  text-decoration: none;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   LOGIN BOX
+========================= */
+.sub-box {
+  width: 90%;
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 20px;
+  color: var(--white);
+  backdrop-filter: blur(6px);
+
+  /* background-image:
+    linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("../images/background.jpg"); */
+
+  /* background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+
+  background-color: var(--text);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   TITLE
+========================= */
+.wel-title {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.wel_user {
+  font-size: 0.8rem;
+  text-align: right;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+/* =========================
+   INPUTS
+========================= */
+.sub-box input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.sub-box input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+}
+
+/* =========================
+   BUTTON
+========================= */
+.sub-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: none;
+  background-color: var(--secondary);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sub-box button:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-2px);
+}
+
+.sub-box button:active {
+  transform: translateY(0);
+}
+.message {
+  font-family: "montserrat", sans-serif;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+/* styling base header menu */
+.menu {
+  width: 100%;
+}
+.menu-container {
+  background-color: var(--text);
+  max-width: 420px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: var(--radius);
+  padding: 20px 0;
+}
+.menu-container a {
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "montserrat", sans-serif;
+  color: var(--accent);
+  transition: all 0.2s ease-in-out;
+}
+.menu-container a:hover {
+  font-size: 1.1rem;
+  color: var(--secondary);
+}
+.menu-container ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* flash styling */
+.error {
+  color: white;
+  background-color: red;
+  padding: 10px 0;
+  width: 60%;
+  margin: 0 auto;
+  font-weight: bold;
+}
+.sucess {
+  color: white;
+  background-color: green;
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 480px) {
+  .login-header a {
+    font-size: 1.8rem;
+  }
+
+  .sub-box {
+    margin: 40px auto;
+    padding: 20px;
+  }
+  .menu-container {
+    max-width: 350px;
+    font-size: 0.8rem;
+  }
+}

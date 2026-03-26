@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+<!-- title block -->
+{% block title %}Add Lense Case{% endblock %}
+
+<!-- body block -->
+{% block body %}
+<!-- header -->
+<h2 class="add-lensecase-header">Add Lense Case</h2>
+
+<!-- forms -->
+<form
+  action="{{url_for('add.add_case')}}"
+  method="post"
+  class="add-lensecase-form"
+>
+  <!-- price -->
+  <input type="number" placeholder="Price" required step="any" name="price" />
+  <!-- colour -->
+  <input type="text" name="colour" placeholder="Colour" required />
+  <!-- submit button -->
+  <button type="submit" class="add-lense-submit">Add</button>
+</form>
+
+<!-- flash message -->
+{% with message = get_flashed_messages(with_categories = True) %} {% if
+message%} {% for c, m in message %}
+<p class="{{c}} add-info">{{m}}</p>
+{% endfor %} {% endif %} {% endwith %}
+
+<!-- end of block -->
+{% endblock %}
