@@ -1,0 +1,1 @@
+This project was developed to assist in the sale of spectacles and lense cases where uses can sell both spectacles and lense and track sales and issue receipts to their customers and well. i comes with a dashboard to make good user experience.
